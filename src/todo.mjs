@@ -3,7 +3,7 @@ import {
   getLocalStorage,
   removeLocalStorage,
   setLocalStorage,
-} from "./localStorege.mjs";
+} from "./localStorage.mjs";
 
 let state = [];
 

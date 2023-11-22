@@ -1,5 +1,5 @@
 import { aCounter, addEvent, element } from "./util.mjs";
-import { getLocalStorage, setLocalStorage } from "./localStorege.mjs";
+import { getLocalStorage, setLocalStorage } from "./localStorage.mjs";
 
 /**
  * setState 함수는 새로운 상태를 받아 로컬 스토리지에 저장하고, UI를 업데이트하는 역할을 수행합니다.
