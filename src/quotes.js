@@ -38,7 +38,6 @@ const checkLocalStorage = () => {
  * @returns {void}
  */
 const render = () => {
-  const random = Math.floor(Math.random() * 4);
   element("#quotes").innerHTML = `
    <span id="quoteText" >🫡오늘의 동기부여</span>
     <button id="addBtn"> 추가 </button>

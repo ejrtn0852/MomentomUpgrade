@@ -1,16 +1,18 @@
 import { addEvent, element } from "./util.mjs";
+import { getLocalStorage, setLocalStorage } from "./localStorage.mjs";
 
 /**
  * 로그인 이벤트를 처리하는 함수입니다.
  * 로그인 폼이 제출될 때 사용자 이름을 로컬 스토리지에 저장하고
  * 환영 메시지를 업데이트합니다.
  */
+
 const loginEvent = () => {
   const loginFormInput = element("#login-form > input");
   addEvent("submit", "#login-form", ({ target }) => {
     event.preventDefault();
     let userName = loginFormInput.value;
-    localStorage.setItem("userName", userName);
+    setLocalStorage("userName", userName);
     loginFormInput.value = "";
     updateGreeting(userName);
   });
@@ -54,4 +56,4 @@ const showForm = () => {
   element("#login-form").classList.remove("hidden");
 };
 
-window.onload = initializePage;
+document.addEventListener("DOMContentLoaded", initializePage);

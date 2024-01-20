@@ -8,7 +8,7 @@ export const setLocalStorage = (key, state) => {
   if ((typeof state === "object" && state !== null) || Array.isArray(state)) {
     localStorage.setItem(key, JSON.stringify(state));
     console.log(`state 타입 : ${typeof state}`);
-  } else if(isStringifyJSON(state)) {
+  } else if (isStringifyJSON(state)) {
     localStorage.setItem(key, state);
   }
 };
@@ -36,7 +36,7 @@ export const getLocalStorage = (key) => {
  */
 export const removeLocalStorage = (key, state) => {
   const localStorageData = getLocalStorage(key);
-  if (localStorageData && localStorageData !== null) {
+  if (localStorageData) {
     const updatedData = localStorageData.filter(
       (item) => Number(item.id) !== Number(state.id),
     );
@@ -66,7 +66,7 @@ const isStringifyJSON = (str) => {
   try {
     JSON.stringify(str);
     return true;
-  }catch (error) {
+  } catch (error) {
     return false;
   }
-}
+};

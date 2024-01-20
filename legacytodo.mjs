@@ -41,8 +41,7 @@ const setLocalStorage = () => {
 };
 const getLocalStorage = () => {
   const getItem = localStorage.getItem("todoList");
-  const result = JSON.parse(getItem);
-  return result;
+  return JSON.parse(getItem);
 };
 
 addEvent("submit", "#todo-form", ({ target }) => {

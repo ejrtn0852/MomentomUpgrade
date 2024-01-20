@@ -1,5 +1,6 @@
 import { addEvent, createElement, element } from "./util.mjs";
 import { getLocalStorage, setLocalStorage } from "./localStorage.mjs";
+
 const background = ["background1.jpeg", "background2.png"];
 /**
  * 무작위로 선택된 배경 이미지를 가져와 화면의 특정 요소 배경으로 설정하는 함수입니다.
@@ -7,11 +8,11 @@ const background = ["background1.jpeg", "background2.png"];
 const getBackground = () => {
   // background 배열에서 무작위 인덱스를 선택합니다.
   const randomIndex = Math.floor(Math.random() * background.length);
-
   // 선택된 배경 이미지를 #background 요소의 배경으로 설정합니다.
   element(
     "#background",
-  ).style.backgroundImage = `url('../img/${background[randomIndex]}')`;
+  ).style.background = `url('../img/${background[randomIndex]}')
+  no-repeat center center`;
 };
 
 /**
@@ -58,14 +59,15 @@ const setStoreAndDisplay = (key, value) => {
   setLocalStorage(key, value);
   element(
     "#background",
-  ).style.background = `url(data:image/png;base64,${value}) no-repeat center`;
+  ).style.background = `url(data:image/png;base64,${value})no-repeat center center `;
+  element("#background").classList.add("bg-img");
 };
 
 const getRanDom = (target) => {
   if (target.checked) {
     getBackground();
   }
-  return;
+
 };
 
 /**
@@ -74,7 +76,9 @@ const getRanDom = (target) => {
 if (getLocalStorage("bgImg")) {
   element(
     "#background",
-  ).style.background = `url(data:image/png;base64,${getLocalStorage("bgImg")})`;
+  ).style.background = `url(data:image/png;base64,${getLocalStorage(
+    "bgImg",
+  )})no-repeat center center`;
 } else {
   getBackground();
 }

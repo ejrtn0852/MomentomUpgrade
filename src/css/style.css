@@ -2,7 +2,11 @@
   width: 100vw;
   height: 100vh;
   background-size: cover;
-  object-fit: cover;
+}
+
+.bg-img {
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .hidden {

@@ -5,17 +5,18 @@
     <title>Title</title>
     <link rel="stylesheet" href="../css/style.css" />
   </head>
-  <body id="background">
+  <body id="background" class="bg-img">
     <form id="imgDownload">
       <input type="file" accept="image/*" />
       <input type="checkbox" />
     </form>
     <div id="clock"></div>
     <div id="app">회원</div>
-    <form id="login-form">
-      <input type="text" placeholder="what your name?" />
-      <button type="submit">login</button>
-    </form>
+    <!--        <form id="login-form">-->
+    <!--          <input type="text" placeholder="what your name?" />-->
+    <!--          <button type="submit">login</button>-->
+    <!--        </form>-->
+
     <form id="todo-form">
       <input type="text" placeholder="todo_test" id="todo-input" />
     </form>
@@ -24,7 +25,8 @@
     </div>
     <div id="quotes"></div>
 
-    <script src="../app.mjs" type="module"></script>
+    <script src="../reactType/ReactApp.mjs" type="module"></script>
+    <!--    <script src="../app.mjs" type="module"></script>-->
     <script src="../util.mjs" type="module"></script>
     <script src="../clock.mjs" type="module"></script>
     <script src="../quotes.js" type="module"></script>

@@ -39,12 +39,16 @@ const remove = () => {
  */
 const render = () => {
   element("#todo_list").innerHTML = `
-      ${getLocalStorage("todoList")
-        .map(
-          (item) => `<li id=${item.id}>
+      ${
+        getLocalStorage("todoList")
+          ? getLocalStorage("todoList")
+              .map(
+                (item) => `<li id=${item.id}>
          ${item.value} <button>삭제</button> </li>`,
-        )
-        .join("")}
+              )
+              .join("")
+          : ""
+      }
   `;
   remove();
 };
