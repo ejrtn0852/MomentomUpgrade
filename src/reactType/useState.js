@@ -1,6 +1,7 @@
-export const Modul = (() => {
+const Modul = (() => {
   let global = [];
   let count = 0;
+  let listeners = [];
 
   const useState = (initialValue) => {
     global[count] = global[count] || initialValue;
@@ -11,11 +12,18 @@ export const Modul = (() => {
       } else {
         global[count] = newState;
       }
+      listeners.forEach((listeners) => listeners());
+    };
+
+    const subscribe = (listener) => {
+      listeners.push(listener);
+      return () => listeners.delete(listener);
     };
     const getState = () => global[count];
 
-    return [getState, setState];
+    return [getState, setState, subscribe];
   };
   count++;
   return useState;
 })();
+export default Modul;
